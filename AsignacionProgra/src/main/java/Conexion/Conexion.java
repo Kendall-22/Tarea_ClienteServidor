@@ -13,18 +13,18 @@ public class Conexion {
     private static Conexion conexion;
 
     //URL de la conexión a la base de datos creado previamente
-    private static final String DBURL = "jdbc:mysql://localhost:3306/ugeneral?serverTimezone=UTC";
+    private static final String DBURL = "jdbc:mysql://127.0.0.1:3306/?user=root";
 
     private static Connection conn = null;
 
     //Constructor
     private Conexion() {
-
+//root@127.0.0.1:3306
         try {
             //Importamos el uso del conector para MYSQL
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             //Definiendo los parámetros de la conexión a la base de datos, con usuario, contraseña y la URL del servidor MYSQL
-            conn = DriverManager.getConnection(DBURL, "ugeneral_user", "Prueba123_");
+            conn = DriverManager.getConnection(DBURL, "root", "127.0.0.1:3306");
 
         } catch (ClassNotFoundException | SQLException | NoSuchMethodException | SecurityException
                 | InstantiationException | IllegalAccessException | IllegalArgumentException
@@ -33,6 +33,15 @@ public class Conexion {
         }
 
     }
-    
-    // Pendiente crear el método sincronizado.
+
+    public static synchronized Connection getConexion() {
+
+        if (conexion == null) {
+
+            conexion = new Conexion();
+        }
+
+        return conn;
+
+    }
 }
