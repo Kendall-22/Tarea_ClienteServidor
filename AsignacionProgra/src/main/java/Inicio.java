@@ -1,4 +1,6 @@
-package com.sc403.asignacionprogra.newpackage;
+import JavaSwing.ClienteChat;
+import JavaSwing.ProveedorChat;
+       
 import Conexion.Producto;
 import Conexion.Conexion;
 import Gestion.ProductoGestion;
@@ -46,6 +48,10 @@ public class Inicio {
             }
             cont = JOptionPane.showInputDialog(null,"¿Desea continuar utilizando el sistema? s/n");
         }
+        
+        ProveedorChat proveChat = new ProveedorChat();
+        proveChat.setVisible(true);
+        proveChat.setLocationRelativeTo(null);
         
     }
     
