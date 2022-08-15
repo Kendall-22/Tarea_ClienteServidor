@@ -1,9 +1,5 @@
 package JavaSwing;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 
 
 import java.io.DataInputStream;
@@ -11,10 +7,7 @@ import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-/**
- *
- * @author jchav
- */
+
 public class ProveedorChat extends javax.swing.JFrame {
 
     //Declaración de las variables para hacer la conexión y envío de data
