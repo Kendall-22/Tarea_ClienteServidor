@@ -9,20 +9,35 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
  * @author jchav
  */
-public class ClienteChat extends javax.swing.JFrame {
+public class ClienteChat extends javax.swing.JFrame implements Runnable {
 
     //Declaración de las variables para hacer la conexión y envío de data
     static Socket socket;
     static DataInputStream dataInput;
     static DataOutputStream dataOutput;
     
+    private String hora;
+    private String minutos;
+    private String segundos;
+    private String ampm;
+    Calendar calendario;
+    Thread h1;
+    
     public ClienteChat() {
         initComponents();
+        h1 = new Thread(this);
+        h1.start();
+        setLocationRelativeTo(null);
+        setTitle("Reloj");
+        setVisible(true);
     }
 
     /**
@@ -131,9 +146,12 @@ public class ClienteChat extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClienteChat().setVisible(true);
+                ClienteChat frmPrincipal = new ClienteChat();
+                frmPrincipal.setTitle("Bienvenido");
+                frmPrincipal.setLocationRelativeTo(null);
+                frmPrincipal.setVisible(true);
             }
         });
         
@@ -155,6 +173,7 @@ public class ClienteChat extends javax.swing.JFrame {
         }
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_enviar;
     private javax.swing.JScrollPane jScrollPane1;
@@ -162,4 +181,35 @@ public class ClienteChat extends javax.swing.JFrame {
     private javax.swing.JTextField txt_textoAEnviar;
     private static javax.swing.JTextArea txta_mensajes;
     // End of variables declaration//GEN-END:variables
+ @Override
+    public void run() {
+        Thread ct = Thread.currentThread();
+
+        while (ct == h1) {
+            calcula();
+            Lbl_Reloj.setText(hora + ":" + minutos + ":" + segundos + ":" + ampm);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+            }
+
+        }
+    }
+
+    private void calcula() {
+        Calendar calendario = new GregorianCalendar();
+        Date fechaHoraActual = new Date();
+        calendario.setTime(fechaHoraActual);
+        ampm = calendario.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
+        if (ampm.equals("PM")) {
+            int h = calendario.get(Calendar.HOUR_OF_DAY) - 12;
+            hora = h > 9 ? "" + h : "0" + h;
+        } else {
+            hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
+        }
+        minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
+    }
+
+
 }

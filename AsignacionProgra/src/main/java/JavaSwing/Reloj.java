@@ -6,14 +6,15 @@ package JavaSwing;
 
 import java.util.*;
 
-
 public class Reloj extends javax.swing.JFrame implements Runnable {
-private String hora;
+
+    private String hora;
     private String minutos;
     private String segundos;
     private String ampm;
     Calendar calendario;
     Thread h1;
+
     /**
      * Creates new form Reloj
      */
@@ -66,36 +67,36 @@ private String hora;
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Lbl_Reloj;
     // End of variables declaration//GEN-END:variables
 
     @Override
-     public void run() {
-       Thread ct = Thread.currentThread();
-       
-       while(ct==h1){
-           calcula();
-           Lbl_Reloj.setText(hora+":"+minutos+":"+segundos+":"+ampm);
-           try{
-                Thread.sleep(1000);    
-           }catch(InterruptedException e){}
-           
-       }
+    public void run() {
+        Thread ct = Thread.currentThread();
+
+        while (ct == h1) {
+            calcula();
+            Lbl_Reloj.setText(hora + ":" + minutos + ":" + segundos + ":" + ampm);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+            }
+
+        }
     }
 
-     private void calcula() {
+    private void calcula() {
         Calendar calendario = new GregorianCalendar();
         Date fechaHoraActual = new Date();
         calendario.setTime(fechaHoraActual);
-        ampm = calendario.get(Calendar.AM_PM)==Calendar.AM?"AM":"PM";
-        if(ampm.equals("PM")){
-            int h= calendario.get(Calendar.HOUR_OF_DAY)-12;
-            hora= h>9?""+h:"0"+h;
-        }else{
-           hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
+        ampm = calendario.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
+        if (ampm.equals("PM")) {
+            int h = calendario.get(Calendar.HOUR_OF_DAY) - 12;
+            hora = h > 9 ? "" + h : "0" + h;
+        } else {
+            hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
         }
         minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
