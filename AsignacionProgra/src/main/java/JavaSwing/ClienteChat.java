@@ -74,7 +74,7 @@ public class ClienteChat extends javax.swing.JFrame implements Runnable {
         });
 
         Lbl_Reloj.setBackground(new java.awt.Color(255, 255, 255));
-        Lbl_Reloj.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        Lbl_Reloj.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Lbl_Reloj.setForeground(new java.awt.Color(0, 0, 0));
 
         Lbl_Reloj1.setBackground(new java.awt.Color(255, 255, 255));
