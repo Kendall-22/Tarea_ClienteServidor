@@ -28,11 +28,11 @@ public class ProveedorChat extends javax.swing.JFrame {
 
     public ProveedorChat() {
         initComponents();
-        h1 = new Thread(this);
+        /*h1 = new Thread(this);
         h1.start();
         setLocationRelativeTo(null);
         setTitle("Reloj");
-        setVisible(true);
+        setVisible(true);*/
     }
 
     /**
@@ -150,8 +150,8 @@ public class ProveedorChat extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runable() {
-            public void runn() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
                 ProveedorChat frmprove = new ProveedorChat();
                 frmprove.setTitle("Bienvenido");
                 frmprove.setLocationRelativeTo(null);
@@ -186,9 +186,20 @@ public class ProveedorChat extends javax.swing.JFrame {
     private static javax.swing.JTextArea txta_mensajes;
     // End of variables declaration//GEN-END:variables
     
-    
-    
-   
+   /* @Override
+    public void run() {
+        Thread ct = Thread.currentThread();
+
+        while (ct == h1) {
+            calcula();
+            Lbl_Reloj.setText(hora + ":" + minutos + ":" + segundos + ":" + ampm);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+            }
+
+        }
+    }*/
 
     private void calcula() {
         Calendar calendario = new GregorianCalendar();
