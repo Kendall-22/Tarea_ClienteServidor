@@ -6,6 +6,9 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 
 public class ProveedorChat extends javax.swing.JFrame {
@@ -15,9 +18,21 @@ public class ProveedorChat extends javax.swing.JFrame {
     static Socket socket;
     static DataInputStream dataInput;
     static DataOutputStream dataOutput;
+    
+    private String hora;
+    private String minutos;
+    private String segundos;
+    private String ampm;
+    Calendar calendario;
+    Thread h1;
 
     public ProveedorChat() {
         initComponents();
+        h1 = new Thread(this);
+        h1.start();
+        setLocationRelativeTo(null);
+        setTitle("Reloj");
+        setVisible(true);
     }
 
     /**
@@ -34,6 +49,7 @@ public class ProveedorChat extends javax.swing.JFrame {
         txt_textoAEnviar = new javax.swing.JTextField();
         btn_enviar = new javax.swing.JButton();
         lbl_proveedor = new javax.swing.JLabel();
+        Lbl_Reloj = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,6 +67,10 @@ public class ProveedorChat extends javax.swing.JFrame {
         lbl_proveedor.setFont(new java.awt.Font("Perpetua", 1, 18)); // NOI18N
         lbl_proveedor.setText("Chat con los clientes");
 
+        Lbl_Reloj.setBackground(new java.awt.Color(255, 255, 255));
+        Lbl_Reloj.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        Lbl_Reloj.setForeground(new java.awt.Color(0, 0, 0));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -67,13 +87,17 @@ public class ProveedorChat extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(245, Short.MAX_VALUE)
                 .addComponent(lbl_proveedor)
-                .addGap(231, 231, 231))
+                .addGap(60, 60, 60)
+                .addComponent(Lbl_Reloj, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbl_proveedor)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_proveedor)
+                    .addComponent(Lbl_Reloj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -126,9 +150,12 @@ public class ProveedorChat extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ProveedorChat().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runable() {
+            public void runn() {
+                ProveedorChat frmprove = new ProveedorChat();
+                frmprove.setTitle("Bienvenido");
+                frmprove.setLocationRelativeTo(null);
+                frmprove.setVisible(true);
             }
         });
 
@@ -151,10 +178,30 @@ public class ProveedorChat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Lbl_Reloj;
     private javax.swing.JButton btn_enviar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_proveedor;
     private javax.swing.JTextField txt_textoAEnviar;
     private static javax.swing.JTextArea txta_mensajes;
     // End of variables declaration//GEN-END:variables
+    
+    
+    
+   
+
+    private void calcula() {
+        Calendar calendario = new GregorianCalendar();
+        Date fechaHoraActual = new Date();
+        calendario.setTime(fechaHoraActual);
+        ampm = calendario.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
+        if (ampm.equals("PM")) {
+            int h = calendario.get(Calendar.HOUR_OF_DAY) - 12;
+            hora = h > 9 ? "" + h : "0" + h;
+        } else {
+            hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
+        }
+        minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
+    }
 }
