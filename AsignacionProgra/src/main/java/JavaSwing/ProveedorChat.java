@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 
-public class ProveedorChat extends javax.swing.JFrame {
+public class ProveedorChat extends javax.swing.JFrame implements Runnable {
 
     //Declaración de las variables para hacer la conexión y envío de data
     static ServerSocket serverSocket;
@@ -28,11 +28,11 @@ public class ProveedorChat extends javax.swing.JFrame {
 
     public ProveedorChat() {
         initComponents();
-        /*h1 = new Thread(this);
+        h1 = new Thread(this);
         h1.start();
         setLocationRelativeTo(null);
         setTitle("Reloj");
-        setVisible(true);*/
+        setVisible(true);
     }
 
     /**
@@ -186,7 +186,7 @@ public class ProveedorChat extends javax.swing.JFrame {
     private static javax.swing.JTextArea txta_mensajes;
     // End of variables declaration//GEN-END:variables
     
-   /* @Override
+    @Override
     public void run() {
         Thread ct = Thread.currentThread();
 
@@ -199,7 +199,7 @@ public class ProveedorChat extends javax.swing.JFrame {
             }
 
         }
-    }*/
+    }
 
     private void calcula() {
         Calendar calendario = new GregorianCalendar();
