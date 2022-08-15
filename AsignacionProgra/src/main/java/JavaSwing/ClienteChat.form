@@ -36,11 +36,17 @@
                   <Component id="jScrollPane1" pref="618" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="txt_textoAEnviar" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btn_enviar" min="-2" pref="87" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btn_Salir" min="-2" pref="128" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
@@ -59,19 +65,21 @@
                   <Component id="lbl_cliente" max="32767" attributes="0"/>
                   <Component id="Lbl_Reloj" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="272" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="txt_textoAEnviar" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btn_enviar" alignment="0" pref="39" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txt_textoAEnviar" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="btn_enviar" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
+              <Component id="btn_Salir" min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
-                  <Component id="Lbl_Reloj1" max="32767" attributes="0"/>
+                  <Component id="Lbl_Reloj1" pref="87" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -140,6 +148,17 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_Salir">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Salir"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_SalirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

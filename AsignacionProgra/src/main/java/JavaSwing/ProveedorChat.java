@@ -50,7 +50,6 @@ public class ProveedorChat extends javax.swing.JFrame implements Runnable {
         btn_enviar = new javax.swing.JButton();
         lbl_proveedor = new javax.swing.JLabel();
         Lbl_Reloj = new javax.swing.JLabel();
-        btn_Salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,9 +71,6 @@ public class ProveedorChat extends javax.swing.JFrame implements Runnable {
         Lbl_Reloj.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Lbl_Reloj.setForeground(new java.awt.Color(0, 0, 0));
 
-        btn_Salir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btn_Salir.setText("Salir");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,10 +90,6 @@ public class ProveedorChat extends javax.swing.JFrame implements Runnable {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Lbl_Reloj, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,9 +104,7 @@ public class ProveedorChat extends javax.swing.JFrame implements Runnable {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_textoAEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(btn_Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -189,7 +179,6 @@ public class ProveedorChat extends javax.swing.JFrame implements Runnable {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Lbl_Reloj;
-    private javax.swing.JButton btn_Salir;
     private javax.swing.JButton btn_enviar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_proveedor;
