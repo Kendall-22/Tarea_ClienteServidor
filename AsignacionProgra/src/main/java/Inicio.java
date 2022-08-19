@@ -14,7 +14,7 @@ public class Inicio {
         //Creamos un objeto de la clase POJO 
         Producto obj_Producto = new Producto();
         ProductoGestion obj_gestion = new ProductoGestion();
-        String cedula;
+        String codigo;
 
         String opcion, cont = "s";
 
@@ -37,14 +37,14 @@ public class Inicio {
                 //Mostramos la información completa desde la base de datos
                 obj_gestion.mostrar_reporte_de_productos();
             } else if (opcion.equals("3")) {
-                cedula = JOptionPane.showInputDialog(null, "Digite el codigo del producto a eliminar:");
-                obj_gestion.eliminar(cedula);
+                codigo = JOptionPane.showInputDialog(null, "Digite el codigo del producto a eliminar:");
+                obj_gestion.eliminar(codigo);
             } else if (opcion.equals("4")) {
-                cedula = JOptionPane.showInputDialog(null, "Digite el codigo del producto a consultar:");
-                obj_gestion.buscaProductos(cedula);
+                codigo = JOptionPane.showInputDialog(null, "Digite el codigo del producto a consultar:");
+                obj_gestion.buscaProductos(codigo);
             } else if (opcion.equals("5")) {
-                cedula = JOptionPane.showInputDialog(null, "Digite el codigo del producto a modificar");
-                obj_Producto.setId(cedula);
+                codigo = JOptionPane.showInputDialog(null, "Digite el codigo del producto a modificar");
+                obj_Producto.setId(codigo);
                 obj_Producto.pedir_datos_actualizar();
                 obj_gestion.actualiza(obj_Producto);
             } else if (opcion.equals("6")) {

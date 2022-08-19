@@ -17,7 +17,7 @@ public class PrincipalMenu extends javax.swing.JFrame {
     //Creamos un objeto de la clase POJO 
     Producto obj_Producto = new Producto();
     ProductoGestion obj_gestion = new ProductoGestion();
-    String cedula;
+    String codigo;
 
     public PrincipalMenu() {
         initComponents();
@@ -173,18 +173,18 @@ public class PrincipalMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_verReporteActionPerformed
 
     private void btn_borrarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrarRegistroActionPerformed
-        cedula = JOptionPane.showInputDialog(null, "Digite el codigo del producto a eliminar:");
-        obj_gestion.eliminar(cedula);
+        codigo = JOptionPane.showInputDialog(null, "Digite el codigo del producto a eliminar:");
+        obj_gestion.eliminar(codigo);
     }//GEN-LAST:event_btn_borrarRegistroActionPerformed
 
     private void btn_buscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarProductoActionPerformed
-        cedula = JOptionPane.showInputDialog(null, "Digite el codigo del producto a consultar:");
-        obj_gestion.buscaProductos(cedula);
+        codigo = JOptionPane.showInputDialog(null, "Digite el codigo del producto a consultar:");
+        obj_gestion.buscaProductos(codigo);
     }//GEN-LAST:event_btn_buscarProductoActionPerformed
 
     private void btn_actualizarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarProductoActionPerformed
-        cedula = JOptionPane.showInputDialog(null, "Digite el codigo del producto a modificar");
-        obj_Producto.setId(cedula);
+        codigo = JOptionPane.showInputDialog(null, "Digite el codigo del producto a modificar");
+        obj_Producto.setId(codigo);
         obj_Producto.pedir_datos_actualizar();
         obj_gestion.actualiza(obj_Producto);
     }//GEN-LAST:event_btn_actualizarProductoActionPerformed

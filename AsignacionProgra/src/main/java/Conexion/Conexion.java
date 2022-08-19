@@ -13,7 +13,7 @@ public class Conexion {
     private static Conexion conexion;
 
     //URL de la conexión a la base de datos creado previamente
-    private static final String DBURL = "jdbc:mysql://127.0.0.1:3306/?user=root";
+    private static final String DBURL = "jdbc:mysql://localhost:3306/inventario?user=root";
 
     private static Connection conn;
 
@@ -24,7 +24,7 @@ public class Conexion {
             //Importamos el uso del conector para MYSQL
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             //Definiendo los parámetros de la conexión a la base de datos, con usuario, contraseña y la URL del servidor MYSQL
-            conn = DriverManager.getConnection(DBURL, "root", "password");
+            conn = DriverManager.getConnection(DBURL, "inventario_user", "Prueba123_");
 
         } catch (ClassNotFoundException | SQLException | NoSuchMethodException | SecurityException
                 | InstantiationException | IllegalAccessException | IllegalArgumentException
